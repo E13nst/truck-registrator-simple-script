@@ -1,0 +1,79 @@
+POST /tail.php HTTP/1.1 
+Host: truck.88002223460.ru 
+Content-Length: 1347 
+Cache-Control: max-age=0 
+Upgrade-Insecure-Requests: 1 
+Origin: null 
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary03SJ5dWe5dtpIMDV 
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.63 Safari/537.36 
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 
+Accept-Encoding: gzip, deflate 
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8 
+Connection: close 
+ 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="email" 
+ 
+ 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="pageurl" 
+ 
+file:///Users/ggmax/Downloads/%D0%B2852%D0%BC%D1%8180-start.html 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="referrer" 
+ 
+ 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="pageId" 
+ 
+213865 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="phone" 
+ 
+7(444)444-4444 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="num_truck" 
+ 
+а111аа38 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="num_trailer" 
+ 
+4545 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="person" 
+ 
+435345 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="inn" 
+ 
+435345 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="submit" 
+ 
+send 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="hemail" 
+ 
+ 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV 
+Content-Disposition: form-data; name="790fb4296c0cae550b0b849bfb4949fc" 
+ 
+a0eda65aaba6390b6491dfcc794fca54702f6ed0 
+------WebKitFormBoundary03SJ5dWe5dtpIMDV--
+
+
+
+curl -i -s -k -X $'POST' \
+    -H $'Host: truck.88002223460.ru'
+    -H $'Content-Length: 1347'
+    -H $'Cache-Control: max-age=0'
+    -H $'Upgrade-Insecure-Requests: 1' 
+    -H $'Origin: null' 
+    -H $'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary03SJ5dWe5dtpIMDV' 
+    -H $'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.63 Safari/537.36' 
+    -H $'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' 
+    -H $'Accept-Encoding: gzip, deflate' 
+    -H $'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' 
+    -H $'Connection: close' \
+    --data-binary $'------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"email\"\x0d\x0a\x0d\x0a\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"pageurl\"\x0d\x0a\x0d\x0afile:///Users/ggmax/Downloads/%D0%B2852%D0%BC%D1%8180-start.html\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"referrer\"\x0d\x0a\x0d\x0a\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"pageId\"\x0d\x0a\x0d\x0a213865\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"phone\"\x0d\x0a\x0d\x0a7(444)444-4444\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"num_truck\"\x0d\x0a\x0d\x0a\xd0\xb0111\xd0\xb0\xd0\xb038\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"num_trailer\"\x0d\x0a\x0d\x0a4545\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"person\"\x0d\x0a\x0d\x0a435345\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"inn\"\x0d\x0a\x0d\x0a435345\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"submit\"\x0d\x0a\x0d\x0asend\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"hemail\"\x0d\x0a\x0d\x0a\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV\x0d\x0aContent-Disposition: form-data; name=\"790fb4296c0cae550b0b849bfb4949fc\"\x0d\x0a\x0d\x0aa0eda65aaba6390b6491dfcc794fca54702f6ed0\x0d\x0a------WebKitFormBoundary03SJ5dWe5dtpIMDV--\x0d\x0a' \
+    $'http://truck.88002223460.ru/tail.php'

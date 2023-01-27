@@ -1,0 +1,545 @@
+<html lang="ru-RU"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ЭЛЕКТРОННАЯ ОЧЕРЕДЬ</title>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com/">
+  <link href="http://truck.88002223460.ru/js/191923.1671700573.css" rel="stylesheet">
+  <style type="text/css">
+    span.im-caret {
+      -webkit-animation: 1s blink step-end infinite;
+      animation: 1s blink step-end infinite;
+    }
+
+    @keyframes blink {
+
+      from,
+      to {
+        border-right-color: black;
+      }
+
+      50% {
+        border-right-color: transparent;
+      }
+    }
+
+    @-webkit-keyframes blink {
+
+      from,
+      to {
+        border-right-color: black;
+      }
+
+      50% {
+        border-right-color: transparent;
+      }
+    }
+
+    span.im-static {
+      color: grey;
+    }
+
+    div.im-colormask {
+      display: inline-block;
+      border-style: inset;
+      border-width: 2px;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    div.im-colormask>input {
+      position: absolute;
+      display: inline-block;
+      background-color: transparent;
+      color: transparent;
+      -webkit-appearance: caret;
+      -moz-appearance: caret;
+      appearance: caret;
+      border-style: none;
+      left: 0;
+      /*calculated*/
+    }
+
+    div.im-colormask>input:focus {
+      outline: none;
+    }
+
+    div.im-colormask>div {
+      color: black;
+      display: inline-block;
+      width: 100px;
+      /*calculated*/
+    }
+  </style>
+
+  <script src="http://truck.88002223460.ru/js/jquery.js" type="text/javascript"></script>
+  <script src="http://truck.88002223460.ru/js/jquery.maskedinput.js" type="text/javascript"></script>
+
+  <script src="https://captcha-api.yandex1.ru/captcha.js?render=onload&amp;onload=onloadCaptchaFunction" defer=""></script>
+
+<!--  <script>-->
+<!--    function onloadCaptchaFunction() {-->
+<!--      if (window.smartCaptcha) {-->
+<!--        const container = document.getElementById('ya_captcha');-->
+<!--        const widgetId = window.smartCaptcha.render(container, {-->
+<!--          sitekey: 'DJ7zCwvrt8inBCt5ZZth2ukKTjNbw3vZlc2wuNMy',-->
+<!--          hl: 'ru',-->
+<!--        });-->
+
+<!--        const unsubscribe = window.smartCaptcha.subscribe(-->
+<!--          widgetId,-->
+<!--          'success',-->
+<!--          () => {-->
+<!--            document.getElementById("prev23213865").removeAttribute("disabled");-->
+<!--            document.getElementById("prev23213865").click();-->
+<!--          } //console.log('success')  .removeAttribute("disabled")-->
+<!--        );-->
+<!--      }-->
+<!--    }-->
+<!--  </script>-->
+
+<style type="text/css">span.im-caret {
+    -webkit-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@-webkit-keyframes blink {
+    from, to {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+span.im-static {
+    color: grey;
+}
+
+div.im-colormask {
+    display: inline-block;
+    border-style: inset;
+    border-width: 2px;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+div.im-colormask > input {
+    position: absolute;
+    display: inline-block;
+    background-color: transparent;
+    color: transparent;
+    -webkit-appearance: caret;
+    -moz-appearance: caret;
+    appearance: caret;
+    border-style: none;
+    left: 0; /*calculated*/
+}
+
+div.im-colormask > input:focus {
+    outline: none;
+}
+
+div.im-colormask > div {
+    color: black;
+    display: inline-block;
+    width: 100px; /*calculated*/
+}</style><style>.SmartCaptcha-Overlay {
+  position: fixed;
+  z-index: 9999999;
+  top: -10000px;
+  left: -10000px;
+
+  width: 100%;
+  width: var(--smart-captcha-doc-width, 100%);
+  height: 100%;
+  height: var(--smart-captcha-doc-height, 100%);
+  margin: 0;
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.SmartCaptcha-Overlay.SmartCaptcha-Overlay_visible {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.SmartCaptcha-Overlay .SmartCaptcha-Spin {
+  position: absolute;
+  top: 50%;
+  /* stylelint-disable */
+  left: 0;
+  right: 0;
+  /* stylelint-enable */
+
+  margin: auto;
+
+  transform: translateY(-50%);
+}
+</style><style>.SmartCaptcha-Spin {
+  display: none;
+  visibility: hidden;
+
+  box-sizing: border-box;
+
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+/* Для правильного позиционирования блока относительно baseline */
+.Spin::after {
+  visibility: hidden;
+
+  content: '\00A0'; /* &nbsp; */
+}
+
+/*
+(1) https://st.yandex-team.ru/ISL-6342
+    Добавлена задержка начала анимации, что заставляет её нормально работать в iOS 12-
+    Решение взято отсюда:
+    https://stackoverflow.com/questions/29219534/css-animation-not-always-starting-in-ios-8-safari
+*/
+.SmartCaptcha-Overlay_visible.SmartCaptcha-Overlay_show_spinner .SmartCaptcha-Spin {
+  display: inline-block;
+  visibility: visible;
+
+  width: 50px;
+  height: 50px;
+
+  border-top-color: #5282FF;
+  border-left-color: #5282FF;
+
+  animation: islands-spin 1s .21s infinite linear; /* (1) */
+
+  backface-visibility: hidden;  /* Для ускорения анимации */
+}
+ .SmartCaptcha-Overlay_visible.SmartCaptcha-Overlay_show_spinner .SmartCaptcha-Spin {
+  border-top-color: var(--spin-view-default-border-color, #5282FF);
+  border-left-color: var(--spin-view-default-border-color, #5282FF);
+}
+
+@keyframes islands-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style><style>@font-face{font-family:'YS Text';src:url(//yastatic.net/s3/home/fonts/ys/1/text-light.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-light.woff) format('woff');font-weight:300;font-style:normal;font-stretch:normal}@font-face{font-family:'YS Text';src:url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-regular.woff) format('woff');font-weight:400;font-style:normal;font-stretch:normal}@font-face{font-family:'YS Text';src:url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-medium.woff) format('woff');font-weight:500;font-style:normal;font-stretch:normal}@font-face{font-family:'YS Text';src:url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff2) format('woff2'),url(//yastatic.net/s3/home/fonts/ys/1/text-bold.woff) format('woff');font-weight:700;font-style:normal;font-stretch:normal}.font_loaded body{font-family:'YS Text','Helvetica Neue',Arial,sans-serif;-webkit-font-feature-settings:'liga','kern';-moz-font-feature-settings:'liga','kern';font-feature-settings:'liga','kern'}</style><style>.SmartCaptcha-Shield {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+
+  width: 120px;
+  padding: 6px;
+
+  user-select: none;
+
+  color: #000;
+  border: 1px solid #d9d9d9;
+  border-radius: 11px;
+  background: #ffffffb2;
+
+  transition-timing-function: ease-in;
+  transition-duration: 0.5s;
+  transition-property: transform;
+}
+
+ .SmartCaptcha-Shield {
+  color: var(--color-typo-primary, #000);
+  color: var(--color-typo-primary, #000);
+}
+
+.SmartCaptcha-Shield-Anchor {
+  display: flex;
+  align-items: center;
+}
+
+.SmartCaptcha-Shield_position_left .SmartCaptcha-Shield-Anchor {
+  margin-left: 10px;
+}
+
+.SmartCaptcha-Shield:not(.SmartCaptcha-Shield_visible) {
+  cursor: pointer;
+}
+
+.SmartCaptcha-Shield > :focus-visible {
+  position: relative;
+
+  outline: none;
+}
+
+.SmartCaptcha-Shield > :focus-visible::after {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+
+  content: '';
+
+  border: 2px solid rgb(250, 192, 0);
+  border-radius: 4px;
+}
+
+.SmartCaptcha-Shield-PrivacyLink {
+  width: 63px;
+
+  font-family: 'YS Text';
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 11px;
+  cursor: pointer;
+  text-decoration: none;
+
+  color: rgba(38, 38, 38, 0.8);
+}
+
+.SmartCaptcha-Shield_position_right .SmartCaptcha-Shield-PrivacyLink {
+  margin: 0 10px;
+}
+
+.SmartCaptcha-Shield .SmartCaptcha-Shield-CloseButton {
+  padding: 0;
+
+  cursor: pointer;
+
+  border: none;
+  background: none;
+}
+
+.SmartCaptcha-Shield_position_left .SmartCaptcha-Shield-CloseButton {
+  margin-right: 9px;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_position_top {
+  top: 25%;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_position_center {
+  top: 50%;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_position_bottom {
+  bottom: 25%;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_position_left {
+  left: -100px;
+
+  flex-direction: row-reverse;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_position_right {
+  right: -100px;
+
+  flex-direction: row;
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_visible.SmartCaptcha-Shield_position_left {
+  transform: translateX(90px);
+}
+
+.SmartCaptcha-Shield.SmartCaptcha-Shield_visible.SmartCaptcha-Shield_position_right {
+  transform: translateX(-90px);
+}
+</style><style>.smart-captcha {
+  min-width: 300px;
+  height: 102px;
+}
+
+.smart-captcha_invisible {
+  height: 0;
+}
+</style></head>
+
+<body class="own" data-success="0">
+  <div class="wrapForm wrapForm_center">
+    <div id="pr" class="mainForm user_formish">
+      <h3>ЭЛЕКТРОННАЯ ОЧЕРЕДЬ</h3>
+      <form id="form_191923" class="form" name="form_submit" action="http://truck.88002223460.ru/tail.php" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off" target="_self"><input type="hidden" id="email" name="email"><input type="hidden" id="pageurl" name="pageurl" value="http://truck.88002223460.ru/"><input type="hidden" id="referrer" name="referrer" value=""><input type="hidden" id="current_page" name="pageId" value="213865">
+        <div class="pages">
+          <div class="page page_first" id="page_213861" data-id="213861" data-consultant="0" data-name="Стр. 1">
+            <div id="i2158966" class="shift type-phone"><label class="label required">
+                ТРАНСПОРТНЫХ СРЕДСТВ РФ-КНР <span class="required">*</span></label>
+              <div class="unit image"><img src="http://truck.88002223460.ru/js/depositphotos_1006067-stock-photo-empty.jpg" alt="" decoding="async" loading="lazy"></div>
+
+              <div class="info">Телефон</div>
+
+              <div class="unit">
+                <input type="tel" id="field2158966" placeholder="+7(___)___-____" class="text required reinit" name="phone" value="" style="width:100%" data-id="2158966" data-name="field2158966" autocomplete="off">
+              </div>
+              <script>
+                $("#field2158966").mask("7(999)999-9999");
+              </script>
+            </div>
+
+            <div class="shift btn"><button type="button" id="next213861" class="button nav next" name="submit" value="next">Дальше</button>
+              <button type="submit" class="button submit send" name="submit" value="send">Отправить</button>
+            </div>
+          </div>
+
+          <div class="page" id="page_213862" data-id="213862" data-consultant="0" data-name="Стр. 2">
+            <div id="i2158967" class="shift type-text"><label class="label required">
+                Введите гос. номер <span class="required">*</span></label>
+              <div class="unit image"><img src="http://truck.88002223460.ru/js/Volvo_Trucks_FH_500_White_background_586217_1280x720.jpg" alt="" decoding="async" loading="lazy"></div>
+
+              <div class="info">Введите гос. номер ТЯГАЧА русскими маленькими буквами без пробелов!!!</div>
+
+              <div class="unit">
+
+                <input type="text" id="field2158967" class="text required" name="num_truck" value="" maxlength="9" style="width:100%" data-id="2158967" data-name="field2158967" data-validatelengthrange="7,9" autocomplete="off">
+              </div>
+            </div>
+
+            <script>
+              function validate(evt) { // вешаем обработчик на инпут
+                //#ffb000
+
+                let val = evt; // получаем значение в переменную
+
+                document.getElementById('next213862').setAttribute("class", "");
+                console.log("val: " + val + " length: " + val.length);
+                if (val.length > 0) { // нам нужно, чтобы значение было шесть символов в длину
+                  if (val.match(/^(а|в|е|к|м|н|о|р|с|т|у|х){1}[0-9]{3}(а|в|е|к|м|н|о|р|с|т|у|х){2}[0-9]{2,3}$/gi)) { // запускаем проверку по нашей регулярке
+                    $(this).css('color', 'green'); // красим текст инпута в зелёный, если это гос. номер по ГОСТу
+                    document.getElementById('next213862').setAttribute("class", "button nav next");
+                    document.getElementById('next213862').setAttribute("hidden", "false");
+                    document.getElementById('next213862').setAttribute("value", "next");
+                  } else {
+                    $(this).css('color', 'darkred'); // красим текст в красный, если нет
+                    document.getElementById('next213862').setAttribute("class", "");
+                    document.getElementById('next213862').setAttribute("hidden", "true");
+                    document.getElementById('next213862').setAttribute("value", "next2");
+                  }
+                } else $(this).css('color', 'inherit'); // если длина значение не шесть символов, то возращаем дефолтный цвет
+
+
+              };
+
+
+              document.getElementById('field2158967').oninput = function() {
+                validate($(this).val());
+
+              }
+
+              document.getElementById('field2158967').onkeypress = function() {
+                validate($(this).val());
+              }
+
+              document.getElementById('field2158967').onpaste = e => e.preventDefault();
+              document.getElementById('field2158966').onpaste = e => e.preventDefault();
+
+              /*
+              function validate(evt) {
+                var theEvent = evt || window.event;
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode( key );
+                //var regex = /[0-9\s\+\-]|\./;
+                // /^[А-Я](?:[0-9]{0,3}(?:(?<=[0-9]{3})[А-Я]{1,2}(?:(?<=[А-Я]{2})[0-9]{0,3})?)?)?$/;
+                // var regex = /^([авекмнорстух]{1})(?:[0-9]{0,3})?$/;
+                var regex = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+                if( !regex.test(key) ) {
+                  theEvent.returnValue = false;
+                  if(theEvent.preventDefault) theEvent.preventDefault();
+                }
+              }
+
+              document.getElementById('field2158967').onkeypress = function() {
+                validate(event);
+              }
+
+              document.getElementById('field2158967').onpaste = function() {
+                validate(event);
+              }
+              */
+            </script>
+            <div class="shift btn"><button type="button" id="prev213862" class="button nav prev" name="submit" value="prev">Назад</button>
+              <button type="button" id="next213862" class="button nav next" name="submit" value="next" hidden="false">Дальше</button>
+              <button type="submit" class="button submit send" name="submit" value="send">Отправить</button>
+            </div>
+          </div>
+
+          <div class="page" id="page_213863" data-id="213863" data-consultant="0" data-name="Страница №3">
+            <div id="i2158968" class="shift type-text"><label class="label required">
+                Введите гос. номер <span class="required">*</span></label>
+              <div class="unit image"><img src="http://truck.88002223460.ru/js/pritsep.jpg" alt="" decoding="async" loading="lazy"></div>
+              <div class="info">Введите гос. номер ПРИЦЕПА русскими маленькими буквами без пробелов!!!</div>
+
+              <div class="unit">
+                <input type="text" id="field2158968" class="text required" name="num_trailer" value="" maxlength="9" style="width:100%" data-id="2158968" data-name="field2158968" data-validatelengthrange="8,9" autocomplete="off">
+              </div>
+            </div>
+            <div class="shift btn">
+              <button type="button" id="prev213863" class="button nav prev" name="submit" value="prev">Назад</button>
+              <button type="button" id="next213863" class="button nav next" name="submit" value="next">Дальше</button>
+              <button type="submit" class="button submit send" name="submit" value="send">Отправить</button>
+            </div>
+          </div>
+
+          <div class="page" id="page_213864" data-id="213864" data-consultant="0" data-name="Стр. 4">
+            <div id="i2158969" class="shift type-text"><label class="label required">
+                Введите собственника ТС <span class="required">*</span></label>
+              <div class="unit">
+                <input type="text" id="field2158969" class="text required" name="person" value="" maxlength="255" style="width:100%" data-id="2158969" data-name="field2158969" data-validatelengthrange="3,255" autocomplete="off">
+              </div>
+            </div>
+            <div class="shift btn"><button type="button" id="prev213864" class="button nav prev" name="submit" value="prev">Назад</button>
+              <button type="button" id="next213864" class="button nav next" name="submit" value="next">Дальше</button><button type="submit" class="button submit send" name="submit" value="send">Отправить</button>
+            </div>
+          </div>
+          <div class="page page_last current" id="page_213865" data-id="213865" data-consultant="0" data-name="Стр. 5">
+            <div id="i2158970" class="shift type-numeric"><label class="label required">
+                ИНН Перевозчика <span class="required">*</span></label>
+              <div class="unit">
+                <input type="decimal" pattern="-?(\d+|\d+.\d+|.\d+)([eE][-+]?\d+)?" id="field2158970" class="text numeric required reinit" name="inn" value="" maxlength="255" style="width:100%;" data-id="2158970" data-name="field2158970" inputmode="decimal" data-validatelengthrange="0,255" data-validateminmax="100000," autocomplete="off">
+              </div>
+              <div id="ya_captcha" style="height: 102px;" class="smart-captcha" data-testid="smartCaptcha-container"><input type="hidden" name="smart-token" data-testid="smart-token"><iframe frameborder="0" src="https://captcha-api.yandex1.ru/checkbox.ru.01c10bb5731867d6edcf.html?sitekey=DJ7zCwvrt8inBCt5ZZth2ukKTjNbw3vZlc2wuNMy&amp;hl=ru&amp;test=false&amp;host=truck.88002223460.ru" aria-hidden="false" data-testid="checkbox-iframe" title="SmartCaptcha checkbox widget" style="display: block; width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"></iframe></div>
+            </div>
+            <div class="shift btn"><button type="button" id="prev213865" class="button nav prev" name="submit" value="prev">Назад</button><button id="prev23213865" type="submit" class="button submit send" name="submit" value="send">Отправить</button></div>
+          </div>
+        </div><input type="text" id="hemail" class="hemail" name="hemail">
+      </form>
+      <div class="overlay"></div>
+      <div class="progress">
+        <div class="bar">Подождите, идет отправка данных...</div>
+      </div><input type="hidden" id="token" name="790fb4296c0cae550b0b849bfb4949fc" value="a0eda65aaba6390b6491dfcc794fca54702f6ed0"><noscript><strong>Для корректной отправки формы включите JavaScript</strong></noscript>
+    </div>
+    <div class="wrapFooter">
+      <div class="copyrights">
+         2023.
+        Все права защищены.
+      </div>
+    </div>
+  </div>
+  <script src="http://truck.88002223460.ru/js/jquery.min.js"></script>
+  <script src="http://truck.88002223460.ru/js/191923.1671700573.js"></script>
+
+
+  <script>
+    document.getElementById('field2158968').onpaste = e => e.preventDefault();
+    document.getElementById('field2158969').onpaste = e => e.preventDefault();
+    document.getElementById('field2158970').onpaste = e => e.preventDefault();
+  </script>
+
+
+<!--<div class="SmartCaptcha-Overlay SmartCaptcha-Overlay_visible" data-testid="advanced-container" tabindex="-1" style="&#45;&#45;smart-captcha-doc-height:833px; &#45;&#45;smart-captcha-doc-width:687px;"><div class="SmartCaptcha-Spin"></div><iframe frameborder="0" src="https://captcha-api.yandex1.ru/advanced.ru.01c10bb5731867d6edcf.html?sitekey=DJ7zCwvrt8inBCt5ZZth2ukKTjNbw3vZlc2wuNMy&amp;hl=ru&amp;test=false&amp;host=truck.88002223460.ru" aria-hidden="true" style="display: block; width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);" data-testid="advanced-iframe" title="SmartCaptcha advanced widget" tabindex="-1"></iframe></div><a style="display: none; " id="exifview-absolute-url-convert-proxy" href="dummy"></a></body></html>-->
