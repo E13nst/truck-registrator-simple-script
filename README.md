@@ -1,0 +1,1 @@
+# truck-registrator-simple-script
